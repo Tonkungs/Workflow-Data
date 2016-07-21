@@ -1,0 +1,73 @@
+<!--call by my-main.html -->
+<link rel="import" href="my-list.html">
+<link rel="import" href="my-editdata.html">
+<link rel="import" href="my-worktimeline.html">
+<dom-module id="management-data">
+<style include="iron-flex iron-flex-alignment">  </style>
+  <style>
+  #add{
+    position: fixed;
+    z-index:1;
+    right: 0;
+    bottom: 0px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+  }
+  #seeData{
+    margin: 5px;
+    padding: 5px;
+  }
+  paper-card{
+    margin: 10px;
+  }
+  paper-card > .heading{
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  </style>
+  <template>
+    <div class="layout vertical">
+      <paper-card>
+        <my-worktimeline numselect="{{numselects}}"></my-worktimeline>
+        <button type="button" name="button" on-tap="checkd">เลข</button>
+      </paper-card>
+
+    <paper-card>
+      <div class="heading">Data </div>
+      <div class="card-content">column [[list.detail.0.id]]
+      </div>
+    <div class="layout horizontal" id="seeData">
+        <div class="flex">
+          <paper-listbox>
+            <template is="dom-repeat" items="[[list]]">
+              <my-list menu="{{item}}" select={{selected}}></my-list>
+              <!-- {{item.detail}} -->
+            </template>
+          </paper-listbox>
+        </div>
+        <div class="flex">
+          <my-editdata dataselect={{dataright}}></my-editdata>
+        </div>
+    </div>
+  </div>
+</paper-card>
+    <paper-fab icon="add" title="เพิ่ม" mini id="add" on-tap="addmenu"></paper-fab>
+  </template>
+  <script>
+    Polymer({
+      is: "management-data",
+      attached: function() {
+        //call my-main id data
+        this.globalData= document.getElementById('data');
+      },
+      addmenu:function(){
+        var nowDateTime=Date.now()
+        // this.globalData.adddata(this.numselects,{id:nowDateTime,nameMenu:'ข้อมูล 4',detail:"รายละเอียดข้อมูล"});
+        this.push('list',{id:nowDateTime,nameMenu:'ข้อมูล 4',detail:"รายละเอียดข้อมูล"});
+      },
+      // checkd:function () {
+      //   // console.log(this.numselects);
+      // }
+    });
+  </script>
+</dom-module>

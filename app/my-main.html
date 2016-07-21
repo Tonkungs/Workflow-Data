@@ -1,0 +1,55 @@
+<link rel="import" href="management-data.html">
+<link rel="import" href="my-data.html">
+<link rel="import" href="my-dashboard.html">
+<link rel="import" href="my-footer.html">
+<link rel="import" href="my-headmenu.html">
+<dom-module id="my-main">
+  <style>
+    .bg{
+      background-color: #F4F5F7;
+    }
+    paper-toolbar.white {
+      box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+      --paper-toolbar-background: #67b0d1;
+      --paper-toolbar-title: {
+        color: white;
+        font-weight: bold;
+      };
+    }
+  </style>
+  <template>
+    <my-data id="data" ldata={{data}} menuselect="{{menuselected}}" dataselect={{selected}}></my-data>
+      <paper-drawer-panel responsive-width="960px" drawer-width="0px">
+        <paper-scroll-header-panel drawer fixed>
+        </paper-scroll-header-panel>
+        <paper-scroll-header-panel main fixed>
+          <paper-toolbar class="medium-tall white">
+            <span class="title">Dash Board </span>
+            <div class="middle">
+              <my-headmenu selectedpage="{{selectedpage}}"></my-headmenu>
+            </div>
+          </paper-toolbar>
+          <div class="bg">
+          <iron-pages selected="{{ selectedpage }}" selectedindex="0">
+              <my-dashboard></my-dashboard>
+              <management-data list="{{menuselected.detail}}" dataright="{{selected}}"></management-data>
+            </iron-pages>
+            <my-footer></my-footer>
+          </div>
+        </paper-scroll-header-panel>
+      </paper-drawer-panel>
+
+
+  </template>
+  <script>
+    Polymer({
+      is: "my-main",
+      ready: function() {
+        // var pages = document.querySelector('paper-tabs');
+        // var iron_page = document.querySelector('iron-pages');
+        // console.log(pages);
+        // console.log(iron_page);
+      }
+    });
+  </script>
+</dom-module>

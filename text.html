@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      canvas{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: -1;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="1300" height="180">ทดสอบ</canvas>
+    ทดสอบ
+  </body>
+  <!-- <script type="text/javascript">
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    context.beginPath();
+    context.strokeStyle = "#3984dd";
+    context.stroke();
+    context.moveTo(50, 100);
+    context.lineTo(200, 100);
+    context.lineTo(360, 50);
+    context.lineTo(650, 50);
+    context.lineTo(810, 100);
+    context.lineTo(1200, 100);
+    context.stroke();
+  </script> -->
+  <script type="text/javascript">
+  var inventory = [
+  [{name: 'apples', quantity: 2},
+  {name: 'bananas', quantity: 0},
+  {name: 'cherries', quantity: 5}]
+];
+
+function findCherries(fruit) {
+  return fruit.name === 'cherries';
+}
+
+console.log(inventory.find(findCherries));
+  </script>
+</html>

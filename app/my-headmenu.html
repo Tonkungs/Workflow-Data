@@ -1,0 +1,27 @@
+<!-- call by my-main -->
+<dom-module id="my-headmenu">
+  <style>
+  </style>
+  <template>
+    <paper-tabs selected="{{ selectedpage }}" selectedindex="0">
+      <paper-tab>Home</paper-tab>
+      <paper-tab>Work Timeline</paper-tab>
+    </paper-tabs>
+  </template>
+  <script>
+    Polymer({
+      is: "my-headmenu",
+      properties: {
+        selectedpage: {
+          type: Number,
+          notify:true,
+          value:1,
+        }
+      },
+      ready: function() {
+        // var pages = document.querySelector('paper-tabs');
+        // var iron_page = document.querySelector('iron-pages');
+      },
+    });
+  </script>
+</dom-module>

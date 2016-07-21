@@ -1,0 +1,25 @@
+<!-- call by my-main -->
+<dom-module id="my-footer">
+  <style>
+  paper-toolbar.white-footer {
+    bottom: 0px;
+  --paper-toolbar-background: #67b0d1;
+    --paper-toolbar-title: {
+      color: white;
+      font-weight: bold;
+    };
+
+  }
+  </style>
+  <template>
+    <paper-toolbar class="white-footer" justify="center">
+      <span>© Copyright 2016 - All rights reserved.</span>
+    </paper-toolbar>
+  </template>
+  <script>
+    Polymer({
+      is: "my-footer",
+
+    });
+  </script>
+</dom-module>

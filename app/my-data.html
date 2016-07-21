@@ -1,0 +1,143 @@
+<!-- call by my-main -->
+<dom-module id="my-data">
+  <template>
+      <!-- {{lineData}} -->
+  </template>
+  <script>
+    Polymer({
+      is: "my-data",
+      properties: {
+        linedata: {
+          type: Object,
+          notify: true,
+          value: [
+              { id:0 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" },
+              { id:1 , nameMenu:"ข้อมูล 2" , detail:"รายละเอียด 2" },
+              { id:2 , nameMenu:"ข้อมูล 3" , detail:"รายละเอียด 3" }
+            ]
+        },
+        dataselect:{
+          type: Object,
+          notify:true
+        },
+        ldata:{
+          type: Object,
+          notify:true,
+          value:[
+              {
+                number:"1",
+                detail:[
+                  { id:0 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" },
+                  { id:1 , nameMenu:"ข้อมูล 2" , detail:"รายละเอียด 2" }
+                ]
+              },
+              {
+                number:"2",
+                detail:[
+                  { id:2 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" },
+                  { id:3 , nameMenu:"ข้อมูล 2" , detail:"รายละเอียด 2" }
+                ]
+              },
+              {
+                number:"3",
+                detail:[
+                  { id:4 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" },
+                  { id:5 , nameMenu:"ข้อมูล 2" , detail:"รายละเอียด 2" },
+                  { id:6 , nameMenu:"ข้อมูล 3" , detail:"รายละเอียด 3" }
+                ]
+              },
+              {
+                number:"4",
+                detail:[
+                  { id:7 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" },
+                  { id:8 , nameMenu:"ข้อมูล 2" , detail:"รายละเอียด 2" }
+                ]
+              },
+              {
+                number:"5",
+                detail:[
+                  { id:9 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" }
+                ]
+              },
+              {
+                number:"6",
+                detail:[
+                  { id:10 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" },
+                  { id:11 , nameMenu:"ข้อมูล 2" , detail:"รายละเอียด 2" },
+                  { id:12 , nameMenu:"ข้อมูล 3" , detail:"รายละเอียด 3" },
+                  { id:13 , nameMenu:"ข้อมูล 4" , detail:"รายละเอียด 4" }
+                ]
+              },
+              {
+                number:"7",
+                detail:[
+                  { id:14 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" },
+                  { id:15 , nameMenu:"ข้อมูล 2" , detail:"รายละเอียด 2" }
+                ]
+              }
+          ]
+        },
+        menuselect:{
+          type: Object,
+          notify:true
+        },
+      },
+      attached: function() {
+        // console.log(this.ldata[5].detail[3]);
+      },
+      globaldata : function (data){
+        this.dataselect = data;
+        //เลือกแก้ไขข้อมูล โดนเรียกจากไฟล์  my-editdata.html
+      },
+      menudata : function (menudata) {
+        this.menuselect = this.ldata[menudata];
+      },
+      adddata:function (idarray,data) {
+          console.log(idarray);
+          console.log(data);
+      },
+      save:function(id,nameMenu,detail){
+        // ยัง่ใช้งานไม่ได้
+        // let id = {number:"number_1", detail:[{ id:0 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" }]
+        //           };
+        // var index = this.ldata.indexOf(id);
+        // // console.log(index);
+        // var change = {id:index , nameMenu:nameMenu , detail:detail};
+        // this.splice('ldata',index,1,change);
+      },
+      deletes:function (ids) {
+        var x,y;
+        for (var i = 0; i < this.ldata.length; i++) {
+          // console.log(this.ldata[i].detail);
+          var arr1 = this.ldata[i];
+          for (var j= 0; j < arr1.detail.length; j++) {
+            if (arr1.detail[j].id === ids.id) {
+              x=i;
+              y=j;
+              // var arr2 = arr1.detail[j];
+              console.log(i);
+              console.log(arr1);
+              // this.splice('arr1',x,1);
+              // console.log(arr2);
+              console.log(arr1);
+              // console.log(this.ldata[i].detail[j]);
+              console.log('found');
+            }
+          }
+        }
+        // console.log(x);
+        // console.log(y);
+        // var index = this.ldata.indexOf(id);
+        // console.log(index);
+        //console.log(this.splice);
+        //this.splice('ldata[0]',x,1);
+
+        this.splice('ldata.0.detail',0,1);
+        console.log(this.get('ldata.0.detail'));
+        // console.log(this.ldata);
+      }
+
+
+    });
+  </script>
+</dom-module>
