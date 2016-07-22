@@ -38,7 +38,7 @@
     <div class="layout horizontal" id="seeData">
         <div class="flex">
           <paper-listbox>
-            <template is="dom-repeat" items="[[kkk]]">
+            <template is="dom-repeat" items="{{kkk}}">
               <my-list menu="{{item}}" menuid={{selected}}></my-list>
             </template>
           </paper-listbox>
@@ -79,17 +79,14 @@
         this.modelRight = JSON.parse(JSON.stringify(data));
       },
       checkData:function(data){
-
-        if (this.menudatas > -1){
+      if (this.menudatas > -1){
           this.kkk = this.lists[this.menudatas].detail;
         }
       },
       changenum: function(menudatas) {
-
         if (menudatas > -1){
           this.kkk = this.lists[menudatas].detail;
         }
-
       },
       attached: function() {
         this.globalData= document.getElementById('data');
@@ -106,10 +103,12 @@
           check2:false,
           check3:true
         });
-      },
-      // fffff:function(){
-      //   console.log(this.selected);
-      // }
+        // this.checkData(this.lists);
+        // menudatas++;
+        this.kkk = JSON.parse(JSON.stringify(this.lists[this.menudatas].detail));
+        console.log(this.kkk);
+        console.log(this.lists);
+      }
     });
   </script>
 </dom-module>
