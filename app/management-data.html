@@ -50,7 +50,7 @@
           </paper-listbox>
         </div>
         <div class="flex">
-          <my-editdata dataselect={{dataright}} idparent="{{menudatas}}"></my-editdata>
+          <my-editdata dataselect="{{modelRight}}" dataselectindex="{{dataright}}" idparent="{{menudatas}}"></my-editdata>
         </div>
     </div>
   </div>
@@ -78,8 +78,12 @@
       },
       observers: [
         'changenum(menudatas)',
-        'checkData(lists)'
+        'checkData(lists)',
+        'checkDataRight(dataright)'
       ],
+      checkDataRight:function(data){
+        this.modelRight = JSON.parse(JSON.stringify(data));
+      },
       checkData:function(data){
 
         if (this.menudatas > -1){

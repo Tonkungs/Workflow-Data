@@ -107,13 +107,14 @@
           this.push('ldata.'+idarray+'.detail',data);
           // console.log(this.get('ldata.'+idarray+'.detail'));
       },
-      save:function(idparent,id,nameMenu,detail){
+      save:function(idparent,id,data){
 
         //var data = this.get('ldata.'+idparent+'.detail');
 
 
         var index = this.ldata[idparent].detail.indexOf(id);
-        this.splice('ldata.'+idparent+'.detail',index,1,id);
+        console.log(index);
+        this.splice('ldata.'+idparent+'.detail',index,1,data);
 
         this.ldata = JSON.parse(JSON.stringify(this.ldata));
         //console.log(this.get('ldata.'+idparent+'.detail'));
