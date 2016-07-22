@@ -1,3 +1,4 @@
+<!-- call by management-data.html -->
 <link rel="import" href="my-editmenu.html">
 <dom-module id="my-list">
   <style include="iron-flex iron-flex-alignment"></style>
@@ -30,9 +31,8 @@
           notify:true
         },
         menuid:{
-          type: Number,
-          notify:true,
-          value:-1
+          type: Object,
+          notify:true
         }
       },
       attached: function() {
@@ -43,7 +43,8 @@
       },
       getdata:function() {
         this.globalData.globaldata(this.menu);
-        // console.log(this.menu);
+        this.menuid = this.menu;
+        // console.log(this.menuid);
       }
     });
   </script>

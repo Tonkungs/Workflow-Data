@@ -38,13 +38,14 @@
         <!-- column :{{menudatas}}  : lis [[lists.1.detail.1.id]] -->
         <!-- 1212 : {{kkk}} : {{menunum}} -->
         <!-- idparent="{{menudatas}}"  -->
-      <!-- sp:  {{selected}} -->
+      <!-- sp:  {{selected}} rer {{selected}}-->
+      <!-- <button type="button" name="button" on-tap="fffff">กด</button>{{lists.0.detail.0.nameMenu}} -->
       </div>
     <div class="layout horizontal" id="seeData">
         <div class="flex">
           <paper-listbox>
             <template is="dom-repeat" items="[[kkk]]">
-              <my-list menu="{{item}}" menu={{selected}}></my-list>
+              <my-list menu="{{item}}" menuid={{selected}}></my-list>
             </template>
           </paper-listbox>
         </div>
@@ -76,34 +77,36 @@
         }
       },
       observers: [
-        'changenum(menudatas)'
+        'changenum(menudatas)',
+        'checkData(lists)'
       ],
+      checkData:function(data){
+
+        if (this.menudatas > -1){
+          this.kkk = this.lists[this.menudatas].detail;
+        }
+      },
       changenum: function(menudatas) {
-        // this.menunum = menudatas;
-        // this.kkk = this.lists[this.menudatas].detail;
-        // console.log(menudatas);
+
         if (menudatas > -1){
           this.kkk = this.lists[menudatas].detail;
-          // console.log(this.kkk );
         }
-          // console.log(menudatas);
-        // console.log(this.menunum);
+
       },
       attached: function() {
-        //call my-main id data
+
         this.globalData= document.getElementById('data');
-        // this.kkk = this.lists[this.menudatas].detail;
-        // this.kkk = this.lists[xx].detail;
-        // console.log(this.menunum);
-        // console.log(this.kkk);
-        // this.list = this.lists[0];
-        // console.log(this.list);
+
       },
       addmenu:function(){
-        // this.kkk = this.lists[this.menudatas].detail;
+        // console.log(this.dataright);
+
         var nowDateTime=Date.now()
         this.globalData.adddata(this.menudatas,{id:nowDateTime,nameMenu:'ข้อมูล 4',detail:"รายละเอียดข้อมูล"});
         // this.push('list',{id:nowDateTime,nameMenu:'ข้อมูล 4',detail:"รายละเอียดข้อมูล"});
+      },
+      fffff:function(){
+        console.log(this.selected);
       }
     });
   </script>

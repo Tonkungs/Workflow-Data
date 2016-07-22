@@ -47,7 +47,7 @@
             </div>
             <div class="flex menu_box" >
               <paper-dropdown-menu label="Your favourite pastry">
-                <paper-listbox class="dropdown-content">
+                <paper-listbox id="dropdownCheck" class="dropdown-content" selected="[[dataselect.dropdown]]">
                   <paper-item>Croissant</paper-item>
                   <paper-item>Donut</paper-item>
                   <paper-item>Financier</paper-item>
@@ -63,10 +63,10 @@
               เมนู 3
             </div>
             <div class="flex menu_box" >
-              <paper-radio-group selected="small">
-                <paper-radio-button name="small">เลือก 1 </paper-radio-button>
-                <paper-radio-button name="medium">เลือก 2</paper-radio-button>
-                <paper-radio-button name="large">เลือก 3</paper-radio-button>
+              <paper-radio-group selected="[[dataselect.radiogroup]]">
+                <paper-radio-button name="a">เลือก 1 </paper-radio-button>
+                <paper-radio-button name="b">เลือก 2</paper-radio-button>
+                <paper-radio-button name="c">เลือก 3</paper-radio-button>
               </paper-radio-group>
             </div>
           </div>
@@ -77,9 +77,9 @@
               เมนู 4
             </div>
             <div class="flex menu_box" >
-              <paper-checkbox checked> เลือก 1</paper-checkbox>
-              <paper-checkbox > เลือก 2</paper-checkbox>
-              <paper-checkbox > เลือก 3</paper-checkbox>
+              <paper-checkbox checked="[[dataselect.check1]]"> เลือก 1</paper-checkbox>
+              <paper-checkbox checked="[[dataselect.check2]]"> เลือก 2</paper-checkbox>
+              <paper-checkbox checked="[[dataselect.check3]]"> เลือก 3</paper-checkbox>
             </div>
           </div>
         </div>
@@ -96,8 +96,9 @@ Polymer({
   save: function(){
     let nameMenu = this.$.nameMenu.value;
     let detail = this.$.detail.value;
-    // console.log(this.idparent);
-    // console.log(this.dataselect);
+
+    //let dropdownCheck = this.$.dropdownCheck;
+    //console.log(dropdownCheck);
     this.dataedit.save(this.idparent,this.dataselect,nameMenu,detail);
   },
   delete:function() {
