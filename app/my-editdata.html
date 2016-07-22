@@ -7,7 +7,35 @@
 .menu_box{
   margin: 5px;
   padding: 5px;
-  border: 1px solid #000;
+  /*border: 1px solid #000;*/
+}
+paper-button{
+  margin-top: 5px;
+  margin-left: 10px;
+}
+paper-button.save {
+  background-color: var(--paper-indigo-500);
+  color: white;
+  --paper-button-raised-keyboard-focus: {
+    background-color: var(--paper-pink-a200) !important;
+    color: white !important;
+  };
+}
+paper-button.delete {
+  background-color: var(--paper-red-500);
+  color: white;
+  --paper-button-raised-keyboard-focus: {
+    background-color: var(--paper-pink-a200) !important;
+    color: white !important;
+  };
+}
+paper-button.edit {
+  background-color: var(--paper-green-500);
+  color: white;
+  --paper-button-raised-keyboard-focus: {
+    background-color: var(--paper-pink-a200) !important;
+    color: white !important;
+  };
 }
 </style>
 <template>
@@ -15,13 +43,13 @@
     <div class="layout vertica">
       <div class="layout horizontal">
         <div class="flex">
-          <paper-button on-tap="save">บันทึกข้อมูล</paper-button>
+          <paper-button on-tap="save" class="save">บันทึกข้อมูล</paper-button>
         </div>
         <div class="flex">
-          <paper-button >แก้ไข</paper-button>
+          <paper-button class="edit">แก้ไข</paper-button>
         </div>
         <div class="flex">
-          <paper-button on-tap="delete">ลบข้อมูล</paper-button>
+          <paper-button on-tap="delete" class="delete">ลบข้อมูล</paper-button>
         </div>
         <div class="flex"></div>
       </div>
@@ -40,6 +68,7 @@
             </div>
           </div>
         </div>
+        <hr>
         <div class="flex">
           <div class="layout horizontal">
             <div class="flex-2 menu_box">
@@ -57,6 +86,7 @@
             </div>
           </div>
         </div>
+        <hr>
         <div class="flex">
           <div class="layout horizontal">
             <div class="flex-2 menu_box">
@@ -71,6 +101,7 @@
             </div>
           </div>
         </div>
+        <hr>
         <div class="flex">
           <div class="layout horizontal">
             <div class="flex-2 menu_box">
@@ -91,7 +122,7 @@
 Polymer({
   is: "my-editdata",
   attached: function() {
-        this.dataedit = document.getElementById('data');
+    this.dataedit = document.getElementById('data');
   },
   save: function(){
 
@@ -107,7 +138,6 @@ Polymer({
     this.dataedit.save(this.idparent,this.dataselectindex,this.dataselect);
   },
   delete:function() {
-    // call my-data.html
     this.dataedit.deletes(this.idparent,this.dataselect);
   }
 });

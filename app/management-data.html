@@ -31,15 +31,9 @@
         <my-worktimeline numselect="{{menudatas}}"></my-worktimeline>
         <!-- <button type="button" name="button" on-tap="checkd">เลข</button> -->
       </paper-card>
-
     <paper-card>
       <div class="heading">Data </div>
       <div class="card-content">
-        <!-- column :{{menudatas}}  : lis [[lists.1.detail.1.id]] -->
-        <!-- 1212 : {{kkk}} : {{menunum}} -->
-        <!-- idparent="{{menudatas}}"  -->
-      <!-- sp:  {{selected}} rer {{selected}}-->
-      <!-- <button type="button" name="button" on-tap="fffff">กด</button>{{lists.0.detail.0.nameMenu}} -->
       </div>
     <div class="layout horizontal" id="seeData">
         <div class="flex">
@@ -98,20 +92,24 @@
 
       },
       attached: function() {
-
         this.globalData= document.getElementById('data');
-
       },
       addmenu:function(){
-        // console.log(this.dataright);
-
         var nowDateTime=Date.now()
-        this.globalData.adddata(this.menudatas,{id:nowDateTime,nameMenu:'ข้อมูล 4',detail:"รายละเอียดข้อมูล"});
-        // this.push('list',{id:nowDateTime,nameMenu:'ข้อมูล 4',detail:"รายละเอียดข้อมูล"});
+        this.globalData.adddata(this.menudatas,{
+          id:nowDateTime ,
+          nameMenu:"ข้อมูล 1" ,
+          detail:"รายละเอียด 1",
+          dropdown:2,
+          radiogroup:'b',
+          check1:true,
+          check2:false,
+          check3:true
+        });
       },
-      fffff:function(){
-        console.log(this.selected);
-      }
+      // fffff:function(){
+      //   console.log(this.selected);
+      // }
     });
   </script>
 </dom-module>
