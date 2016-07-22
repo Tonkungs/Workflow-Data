@@ -28,6 +28,11 @@
         select: {
           type: Object,
           notify:true
+        },
+        menuid:{
+          type: Number,
+          notify:true,
+          value:-1
         }
       },
       attached: function() {
@@ -37,7 +42,7 @@
         // console.log(this.globalData);
       },
       getdata:function() {
-        this.globalData.globaldata(this.menu)
+        this.globalData.globaldata(this.menu);
         // console.log(this.menu);
       }
     });

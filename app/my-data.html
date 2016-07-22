@@ -90,51 +90,47 @@
         //เลือกแก้ไขข้อมูล โดนเรียกจากไฟล์  my-editdata.html
       },
       menudata : function (menudata) {
-        this.menuselect = this.ldata[menudata];
+        // this.menuselect = this.ldata[menudata];
       },
       adddata:function (idarray,data) {
-          console.log(idarray);
-          console.log(data);
+          // console.log(idarray);
+          // console.log(data);
+          // this.splice('ldata.0.detail',0,1);
+          this.push('ldata.'+idarray+'.detail',data);
+          console.log(this.get('ldata.'+idarray+'.detail'));
       },
-      save:function(id,nameMenu,detail){
-        // ยัง่ใช้งานไม่ได้
-        // let id = {number:"number_1", detail:[{ id:0 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" }]
-        //           };
-        // var index = this.ldata.indexOf(id);
-        // // console.log(index);
-        // var change = {id:index , nameMenu:nameMenu , detail:detail};
-        // this.splice('ldata',index,1,change);
+      save:function(idparent,id,nameMenu,detail){
+        var index = this.ldata[idparent].detail.indexOf(id);
+        this.splice('ldata.'+idparent+'.detail',index,1,id);
       },
-      deletes:function (ids) {
-        var x,y;
-        for (var i = 0; i < this.ldata.length; i++) {
-          // console.log(this.ldata[i].detail);
-          var arr1 = this.ldata[i];
-          for (var j= 0; j < arr1.detail.length; j++) {
-            if (arr1.detail[j].id === ids.id) {
-              x=i;
-              y=j;
-              // var arr2 = arr1.detail[j];
-              console.log(i);
-              console.log(arr1);
-              // this.splice('arr1',x,1);
-              // console.log(arr2);
-              console.log(arr1);
-              // console.log(this.ldata[i].detail[j]);
-              console.log('found');
-            }
-          }
-        }
-        // console.log(x);
-        // console.log(y);
+      deletes:function (idparent,ids) {
+        // var x,y;
+        // for (var i = 0; i < this.ldata.length; i++) {
+        //   var arr1 = this.ldata[i];
+        //   for (var j= 0; j < arr1.detail.length; j++) {
+        //     if (arr1.detail[j].id === ids.id) {
+        //       x=i;
+        //       y=j;
+        //       // var arr2 = arr1.detail[j];
+        //       console.log(i);
+        //       console.log(arr1);
+        //       // this.splice('arr1',x,1);
+        //       // console.log(arr2);
+        //       console.log(arr1);
+        //       // console.log(this.ldata[i].detail[j]);
+        //       console.log('found');
+        //     }
+        //   }
+        // }
         // var index = this.ldata.indexOf(id);
         // console.log(index);
         //console.log(this.splice);
         //this.splice('ldata[0]',x,1);
-
-        this.splice('ldata.0.detail',0,1);
-        console.log(this.get('ldata.0.detail'));
-        // console.log(this.ldata);
+        console.log(idparent);
+        console.log(ids);
+        var index = this.ldata[idparent].detail.indexOf(ids);
+        console.log(index);
+        this.splice('ldata.'+idparent+'.detail',index,1);
       }
 
 

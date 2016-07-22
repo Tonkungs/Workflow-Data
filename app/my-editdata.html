@@ -96,12 +96,13 @@ Polymer({
   save: function(){
     let nameMenu = this.$.nameMenu.value;
     let detail = this.$.detail.value;
-    console.log(this.dataselect);
-    this.dataedit.save(this.dataselect,nameMenu,detail);
+    // console.log(this.idparent);
+    // console.log(this.dataselect);
+    this.dataedit.save(this.idparent,this.dataselect,nameMenu,detail);
   },
   delete:function() {
     // call my-data.html
-    this.dataedit.deletes(this.dataselect);
+    this.dataedit.deletes(this.idparent,this.dataselect);
   }
 });
 </script>

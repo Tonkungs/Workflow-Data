@@ -22,6 +22,7 @@
         notify:true,
       }
     },
+    
     attached: function() {
           this.dataedit = document.getElementById('data');
     },
@@ -29,8 +30,9 @@
       // เลขในอาเรย์
       // console.log(e.currentTarget.id);
       this.selectarray = (e.currentTarget.id.substring(7, 8))-1;
+      // console.log(this.selectarray);
       // call my-data.html
-      this.dataedit.menudata(this.selectarray);
+      // this.dataedit.menudata(this.selectarray);
     }
 
   });
