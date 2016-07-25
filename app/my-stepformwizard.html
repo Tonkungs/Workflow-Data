@@ -1,6 +1,13 @@
 <!-- call by management-data.html -->
 <dom-module id="my-stepformwizard">
-<style>
+<style include="iron-flex iron-flex-alignment iron-flex-factors">
+.heading{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.card-content{
+  padding: 20px;
+}
 .nev{
   width: 100%;
 }
@@ -58,7 +65,7 @@ ul>li:hover::after{
   border-bottom: 20px inset transparent;
   border-left: 20px solid white;
 }
-ul>li:last-child::after{
+ul>li:last-of-type::after{
   width: 0;
   height: 0;
   border-top: 20px inset transparent;
@@ -67,24 +74,17 @@ ul>li:last-child::after{
 }
 </style>
 <template>
-  <!-- {{sfwizard}} -->
-<paper-item>  Hello</paper-item>
-  <div class="nev">
-    <ul id="step">
-    <template is="dom-repeat" items="{{sfwizard}}">
-      <li>{{index}} {{item.id}} {{item.namestepmenu}}</li>
-    </template>
+  <div class="card-content">
+    <div class="heading">Step Form Wizard </div>
+    <div class="nev layout vertical">
+      <ul id="step">
+        <template is="dom-repeat" items="{{sfwizard}}">
+          <li><span>ค่า index :</span>{{index}} <span>ค่า ID :</span>{{item.id}} {{item.namestepmenu}}</li>
+        </template>
       </ul>
+    </div>
   </div>
-  <br>
-  <!-- <div class="nev">
-    <ul>
-      <li>1 Profile</li>
-      <li>2 Account</li>
-      <li>Extras</li>
-    </ul>
-  </div> -->
-
+</div>
 </template>
 <script>
 Polymer({
