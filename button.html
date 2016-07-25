@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style>
+  .content{
+    width: 100%;
+  }
+  ul{
+    counter-reset: step;
+  }
+  ul>li{
+    list-style-type: none;
+    float: left;
+    width: 33.33%;
+    position: relative;
+    text-align: center;
+  }
+  ul>li::before{
+    content: counter(step);
+    counter-increment: step;
+    width: 30px;
+    height:30px;
+    line-height: 30px; /*ย้นส่วนสูงจากด้านบนลงมา*/
+    border: 1px solid #000;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+  }
+  ul>li::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+  }
+  ul>li:first-child::after{
+    content: none;
+  }
+  ul>li.active{
+    color: green;
+  }
+  ul>li.active::before{
+    border-color: green;
+  }
+</style>
+  <body>
+    <div class="content">
+      <ul>
+        <li >Profile</li>
+        <li class="active">Account</li>
+        <li>Extras</li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -225,6 +225,15 @@
           type: Object,
           notify:true
         },
+        stepmenu:{
+          type: Object,
+          notify:true,
+          value: [
+              { id:0 , namestepmenu:"ข้อมูล 1" , url:"รายละเอียด 1" },
+              { id:1 , namestepmenu:"ข้อมูล 2" , url:"รายละเอียด 2" },
+              { id:2 , namestepmenu:"ข้อมูล 3" , url:"รายละเอียด 3" }
+            ]
+        }
       },
       globaldata : function (data){
         this.dataselect = data;

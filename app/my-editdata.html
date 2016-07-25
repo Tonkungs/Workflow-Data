@@ -63,8 +63,8 @@ paper-button.edit {
               เมนู 1
             </div>
             <div class="flex menu_box" >
-              <paper-input label="เมนู" always-float-label placeholder="เมนู" value="{{dataselect.nameMenu::input}}" id="nameMenu"></paper-input>
-              <paper-input label="รายล่ะเอียด" always-float-label placeholder="ข้อมูล 1" value="{{dataselect.detail::input}}" id="detail"></paper-input>
+              <paper-input label="เมนู" always-float-label placeholder="เมนู" value="{{dataselect.nameMenu}}" id="nameMenu"></paper-input>
+              <paper-input label="รายล่ะเอียด" always-float-label placeholder="ข้อมูล 1" value="{{dataselect.detail}}" id="detail"></paper-input>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@ paper-button.edit {
             </div>
             <div class="flex menu_box" >
               <paper-dropdown-menu label="Your favourite pastry">
-                <paper-listbox id="dropdownCheck" class="dropdown-content" selected="[[dataselect.dropdown]]">
+                <paper-listbox id="dropdownCheck" class="dropdown-content" selected="{{dataselect.dropdown}}">
                   <paper-item>Croissant</paper-item>
                   <paper-item>Donut</paper-item>
                   <paper-item>Financier</paper-item>
@@ -93,7 +93,7 @@ paper-button.edit {
               เมนู 3
             </div>
             <div class="flex menu_box" >
-              <paper-radio-group id="radiogroupcheck" selected="[[dataselect.radiogroup]]">
+              <paper-radio-group id="radiogroupcheck" selected="{{dataselect.radiogroup}}">
                 <paper-radio-button name="a">เลือก 1 </paper-radio-button>
                 <paper-radio-button name="b">เลือก 2</paper-radio-button>
                 <paper-radio-button name="c">เลือก 3</paper-radio-button>
@@ -108,9 +108,9 @@ paper-button.edit {
               เมนู 4
             </div>
             <div class="flex menu_box" >
-              <paper-checkbox id="checkbox1" checked="[[dataselect.check1]]"> เลือก 1</paper-checkbox>
-              <paper-checkbox id="checkbox2" checked="[[dataselect.check2]]"> เลือก 2</paper-checkbox>
-              <paper-checkbox id="checkbox3" checked="[[dataselect.check3]]"> เลือก 3</paper-checkbox>
+              <paper-checkbox id="checkbox1" checked="{{dataselect.check1}}"> เลือก 1</paper-checkbox>
+              <paper-checkbox id="checkbox2" checked="{{dataselect.check2}}"> เลือก 2</paper-checkbox>
+              <paper-checkbox id="checkbox3" checked="{{dataselect.check3}}"> เลือก 3</paper-checkbox>
             </div>
           </div>
         </div>
@@ -125,16 +125,6 @@ Polymer({
     this.dataedit = document.getElementById('data');
   },
   save: function(){
-
-    this.dataselect.dropdown = this.$.dropdownCheck.selected;
-    this.dataselect.radiogroup =  this.$.radiogroupcheck.selected;
-    this.dataselect.check1 =  this.$.checkbox1.checked;
-    this.dataselect.check2 =  this.$.checkbox2.checked;
-    this.dataselect.check3 =  this.$.checkbox3.checked;
-    // console.log(this.dataselect);
-    // console.log(this.dataselectindex);
-    //let dropdownCheck = this.$.dropdownCheck;
-    //console.log(dropdownCheck);
     this.dataedit.save(this.idparent,this.dataselectindex,this.dataselect);
   },
   delete:function() {

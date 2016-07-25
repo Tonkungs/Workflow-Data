@@ -3,6 +3,7 @@
 <link rel="import" href="my-dashboard.html">
 <link rel="import" href="my-footer.html">
 <link rel="import" href="my-headmenu.html">
+<link rel="import" href="my-stepformwizard.html">
 <dom-module id="my-main">
   <style>
     .bg{
@@ -18,8 +19,9 @@
     }
   </style>
   <template>
-    <my-data id="data" ldata={{data}} menuselect="{{menuselected}}" dataselect={{selecteds}}></my-data>
-      <paper-drawer-panel responsive-width="960px" drawer-width="0px">
+    <my-data id="data" ldata={{data}} menuselect="{{menuselected}}" dataselect={{selecteds}} stepmenu={{sfwizard}}></my-data>
+    <my-stepformwizard sfwizard={{sfwizard}}></my-stepformwizard>
+      <!-- <paper-drawer-panel responsive-width="960px" drawer-width="0px">
         <paper-scroll-header-panel drawer fixed>
         </paper-scroll-header-panel>
         <paper-scroll-header-panel main fixed>
@@ -37,7 +39,7 @@
             <my-footer></my-footer>
           </div>
         </paper-scroll-header-panel>
-      </paper-drawer-panel>
+      </paper-drawer-panel> -->
 
 
   </template>
