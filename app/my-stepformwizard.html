@@ -67,29 +67,28 @@ ul>li:last-child::after{
 }
 </style>
 <template>
-  {{sfwizard}}
+  <!-- {{sfwizard}} -->
+<paper-item>  Hello</paper-item>
   <div class="nev">
-    <ul>
-      <!-- <li>1 Profile</li>
-      <li>2 Account</li>
-      <li>Extras</li> -->
-
-
+    <ul id="step">
     <template is="dom-repeat" items="{{sfwizard}}">
-      <li>{{item.id}} {{item.namestepmenu}}</li>
-        <!-- <a on-tap="checkstepfw"><span class="badge">{{item.id}}</span> {{item.namestepmenu}}</a> -->
+      <li>{{index}} {{item.id}} {{item.namestepmenu}}</li>
     </template>
       </ul>
   </div>
-
+  <br>
+  <!-- <div class="nev">
+    <ul>
+      <li>1 Profile</li>
+      <li>2 Account</li>
+      <li>Extras</li>
+    </ul>
+  </div> -->
 
 </template>
 <script>
 Polymer({
   is: "my-stepformwizard",
-  checkstepfw:function () {
-    console.log(11);
-  }
 });
 </script>
 </dom-module>
