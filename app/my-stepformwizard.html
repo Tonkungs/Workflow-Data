@@ -86,19 +86,25 @@ a:hover{
     <div class="heading">Step Form Wizard </div>
     <div class="nev layout horizontal">
       <template is="dom-repeat" items="{{sfwizard}}">
-        <a href="#" class="flex">ค่า index :</span>{{index}} <span>ค่า ID :</span>{{item.id}}{{item.namestepmenu}}</a>
+        <a href="#" id="{{index}}" class="flex" on-tap="changestep" >ค่า index :</span>{{index}} <span>ค่า ID :</span>{{item.id}}{{item.namestepmenu}}</a>
       </template>
-      <!-- <a href="#" class="flex">1 Profile</a>
-      <a href="#" class="flex selected">2 Account</a>
-      <a href="#" class="flex">3 Extras</a>
-      <a href="#" class="flex">4 Extras</a>
-      <a href="#" class="flex">5 Extras</a> -->
+      <!-- <a id="Profile" href="#" class="flex" on-tap="changestep">1 Profile</a>
+      <a id="Account" href="#" class="flex selected" on-tap="changestep">2 Account</a>
+      <a id="Extras" href="#" class="flex" on-tap="changestep">3 Extras</a>
+      <a id="AXE" href="#" class="flex" on-tap="changestep">4 AXE</a> -->
     </div>
 </div>
 </template>
 <script>
 Polymer({
   is: "my-stepformwizard",
+  changestep:function (e) {
+    var count = document.getElementsByTagName('A').length;
+    for (var i = 0; i < count; i++) {
+      document.getElementsByTagName("A")[i].classList.remove("selected");
+    }
+    document.getElementById(e.currentTarget.id).className += " selected";
+  }
 });
 </script>
 </dom-module>
