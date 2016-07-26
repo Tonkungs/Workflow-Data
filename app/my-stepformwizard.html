@@ -11,31 +11,18 @@
 .nev{
   width: 100%;
 }
-ul>li{
-  list-style-type: none;
-  float: left;
-  width: 30%;
-  height:40px;
-  line-height: 40px;
+a{
+  text-decoration: none;
+  border-top:1px solid #1D864A;
+  border-bottom:1px solid #1D864A;
+  border-right: 1px solid #1D864A;
   text-align: center;
-  position: relative;
-  /*top: 50%;*/
-  /*border-radius: 3px;*/
-  /*border: 1px solid #1D864A;*/
-  background-color: #27AE60;
+  height: 40px;
+  line-height: 40px;
   color: white;
-  margin-right: 0.2%;
+  background-color: #27AE60;
 }
-ul>li:hover{
-  background-color: white;
-  color: #27AE60;
-}
-ul>li:first-child::before{
-  border-top: 20px inset transparent;
-  border-bottom: 20px inset transparent;
-  border-left: 20px solid transparent;
-}
-ul>li::before{
+a::before{
   content: '';
   float: left;
   position: relative;
@@ -46,7 +33,12 @@ ul>li::before{
   border-bottom: 20px inset transparent;
   border-left: 20px solid white;
 }
-ul>li::after{
+a:first-child::before{
+  border-top: 20px solid #1D864A;
+  border-bottom: 20px solid #1D864A;
+  border-left: 1px solid #1D864A;
+}
+a::after{
   content: '';
   float: right;
   width: 0;
@@ -58,14 +50,30 @@ ul>li::after{
   border-left: 20px solid #27AE60;
   z-index: 1;
 }
-ul>li:hover::after{
+a:hover::after{
   width: 0;
   height: 0;
   border-top: 20px inset transparent;
   border-bottom: 20px inset transparent;
   border-left: 20px solid white;
 }
-ul>li:last-of-type::after{
+a:last-of-type::after{
+  left: 21px;
+  width: 0;
+  height: 0;
+  border-top: 20px inset transparent;
+  border-bottom: 20px inset transparent;
+  border-left: 20px solid white;
+}
+a:hover{
+  background-color: white;
+  color: #27AE60;
+}
+.selected{
+  color: #27AE60;
+  background-color: white;
+}
+.selected:after{
   width: 0;
   height: 0;
   border-top: 20px inset transparent;
@@ -76,14 +84,16 @@ ul>li:last-of-type::after{
 <template>
   <div class="card-content">
     <div class="heading">Step Form Wizard </div>
-    <div class="nev layout vertical">
-      <ul id="step">
-        <template is="dom-repeat" items="{{sfwizard}}">
-          <li><span>ค่า index :</span>{{index}} <span>ค่า ID :</span>{{item.id}} {{item.namestepmenu}}</li>
-        </template>
-      </ul>
+    <div class="nev layout horizontal">
+      <template is="dom-repeat" items="{{sfwizard}}">
+        <a href="#" class="flex">ค่า index :</span>{{index}} <span>ค่า ID :</span>{{item.id}}{{item.namestepmenu}}</a>
+      </template>
+      <!-- <a href="#" class="flex">1 Profile</a>
+      <a href="#" class="flex selected">2 Account</a>
+      <a href="#" class="flex">3 Extras</a>
+      <a href="#" class="flex">4 Extras</a>
+      <a href="#" class="flex">5 Extras</a> -->
     </div>
-  </div>
 </div>
 </template>
 <script>
