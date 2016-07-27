@@ -25,47 +25,45 @@ canvas{
 <template>
   <div class="heading">chart </div>
   <div class="card-content">
-    [[id2]]sa
+    {{id2}}
     <div class="layout vertical">
       <div class="layout horizontal">
         <div class="flex bd">
         </div>
         <div class="flex bd layout center-justified">
-          <my-fab lengthdata="[[id2]]"num="2" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="{{id2}}"num="2" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
-          <my-fab lengthdata="[[id3]]"num="3" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="{{id3}}"num="3" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
         </div>
       </div>
       <div class="layout horizontal">
         <div class="flex-4 bd">
-          <my-fab lengthdata="[[id1]]"num="1" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="{{id1}}"num="1" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
-          <my-fab lengthdata="[[id6]]"num="6" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="{{id6}}"num="6" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
-          <my-fab lengthdata="[[id7]]"num="7" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="{{id7}}"num="7" selectarray={{numselect}}></my-fab>
         </div>
       </div>
       <div class="layout horizontal">
         <div class="flex bd">
         </div>
         <div class="flex bd">
-          <my-fab lengthdata="[[id4]]"num="4" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="{{id4}}"num="4" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
-          <my-fab lengthdata="[[id5]]"num="5" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="{{id5}}"num="5" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
         </div>
       </div>
       <canvas id="canvas" width="1300" height="180"></canvas>
-      <!-- <button type="button" name="button" on-tap="checkd">เลข</button> -->
     </div>
-    <button type="button" name="button" on-tap="checknum">ddddd</button>
   </div>
 </template>
 <script>
@@ -120,6 +118,9 @@ Polymer({
     this.id5 = datalength[4].detail.length;
     this.id6 = datalength[5].detail.length;
     this.id7 = datalength[6].detail.length;
+  },
+  attached: function() {
+    // console.log(this.lists);
   }
 });
 </script>
