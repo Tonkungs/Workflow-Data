@@ -4,42 +4,39 @@
   .heading{
     margin-left: 15px;
     margin-top: 15px;
+    padding-bottom: 10px;
   }
   paper-card{
     margin: 10px;
   }
-  #selection-demo {
-     position: relative;
-     height: 300px;
-   }
-   #selection-chart {
-     float: left;
-   }
-   #selection-display {
-     display: inline-block;
-     position: relative;
-     top: 50%;
-   }
+  .card-content{
+    border-top: 1px solid #F4F4F4;
+  }
+  google-chart {
+      height: 300px;
+      width: 400px;
+    }
   </style>
   <template>
     <div class="layout horizontal wrap around-justified">
       <paper-card>
         <div class="heading">chart 1</div>
-        <hr>
         <div class="card-content">column
+          <div class="chart">
           <google-chart
+          id ="chart"
             type="column"
             options='{"title": "Bar height"}'
             data="http://localhost:8080/data/1_chart-data.json">
           </google-chart>
+          </div>
         </div>
       </paper-card>
       <paper-card>
         <div class="heading">chart 2</div>
         <div class="card-content">pie
-          <div id="selection-demo">
+          <div id="selection">
            <google-chart
-             id="selection-chart"
              type="pie"
              options='{"title": "Distribution of days in 2001H1"}'
              data='http://localhost:8080/data/2_chart-data.json'
@@ -120,7 +117,6 @@
         <div class="heading">chart 10</div>
         <div class="card-content">line-chart
           <google-chart
-             id="line-chart"
              type="line"
              options='{"title": "Days in a month"}'
              data='http://localhost:8080/data/10_chart-data.json'>

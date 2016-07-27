@@ -19,12 +19,18 @@
   margin: 5px;
   padding: 5px;
 }
+.card-content{
+  border-top: 1px solid #F4F4F4;
+}
 paper-card{
   margin: 10px;
 }
 paper-card > .heading{
   margin-top: 10px;
   margin-left: 10px;
+}
+paper-listbox{
+  margin: 10px;
 }
 </style>
 <template>
@@ -38,11 +44,10 @@ paper-card > .heading{
     <paper-card>
       <my-listtree treemenu={{treemenu}}></my-listtree>
     </paper-card>
-    <paper-card>
-      <div class="heading">Data </div>
-      <div class="card-content">
-      </div>
-      <div class="layout horizontal" id="seeData">
+    <div class="layout horizontal" id="seeData">
+      <paper-card  class="flex">
+        <div class="heading">Data </div>
+        <div class="card-content"></div>
         <div class="flex">
           <paper-listbox>
             <template is="dom-repeat" items="{{kkk}}">
@@ -50,12 +55,15 @@ paper-card > .heading{
             </template>
           </paper-listbox>
         </div>
-        <div class="flex">
+      </paper-card>
+      <paper-card class="flex">
+        <div class="heading">Data </div>
+        <div class="card-content flex">
           <my-editdata dataselect="{{modelRight}}" dataselectindex="{{dataright}}" idparent="{{menudatas}}"></my-editdata>
         </div>
-      </div>
       </paper-card>
     </div>
+  </div>
 
   <paper-fab icon="add" title="เพิ่ม" mini id="add" on-tap="addmenu"></paper-fab>
 </template>

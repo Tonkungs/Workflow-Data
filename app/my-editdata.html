@@ -1,6 +1,5 @@
 <dom-module id="my-editdata">
-<style include="iron-flex iron-flex-alignment">  </style>
-<style>
+<style include="iron-flex iron-flex-alignment iron-flex-factors">
 #ed{
   border: 1px solid #000;
 }
@@ -41,17 +40,19 @@ paper-button.edit {
 <template>
   <div id="ed">
     <div class="layout vertica">
-      <div class="layout horizontal">
-        <div class="flex">
-          <paper-button on-tap="save" class="save">บันทึกข้อมูล</paper-button>
+      <div class="flex">
+        <div class="layout horizontal around-justified">
+          <div class="flex">
+            <paper-button on-tap="save" class="save">บันทึกข้อมูล</paper-button>
+          </div>
+          <div class="flex">
+            <paper-button class="edit">แก้ไข</paper-button>
+          </div>
+          <div class="flex">
+            <paper-button on-tap="delete" class="delete">ลบข้อมูล</paper-button>
+          </div>
+          <div class="flex-2"></div>
         </div>
-        <div class="flex">
-          <paper-button class="edit">แก้ไข</paper-button>
-        </div>
-        <div class="flex">
-          <paper-button on-tap="delete" class="delete">ลบข้อมูล</paper-button>
-        </div>
-        <div class="flex"></div>
       </div>
       <div class="layout vertica menu_box">
         <div class="flex">
@@ -59,10 +60,10 @@ paper-button.edit {
         </div>
         <div class="flex">
           <div class="layout horizontal">
-            <div class="flex-2 menu_box">
+            <div class="flex menu_box">
               เมนู 1
             </div>
-            <div class="flex menu_box" >
+            <div class="flex-6 menu_box" >
               <paper-input label="เมนู" always-float-label placeholder="เมนู" value="{{dataselect.nameMenu}}" id="nameMenu"></paper-input>
               <paper-input label="รายล่ะเอียด" always-float-label placeholder="ข้อมูล 1" value="{{dataselect.detail}}" id="detail"></paper-input>
             </div>
@@ -71,10 +72,10 @@ paper-button.edit {
         <hr>
         <div class="flex">
           <div class="layout horizontal">
-            <div class="flex-2 menu_box">
+            <div class="flex menu_box">
               เมนู 2
             </div>
-            <div class="flex menu_box" >
+            <div class="flex-6 menu_box" >
               <paper-dropdown-menu label="Your favourite pastry">
                 <paper-listbox id="dropdownCheck" class="dropdown-content" selected="{{dataselect.dropdown}}">
                   <paper-item>Croissant</paper-item>
@@ -89,10 +90,10 @@ paper-button.edit {
         <hr>
         <div class="flex">
           <div class="layout horizontal">
-            <div class="flex-2 menu_box">
+            <div class="flex menu_box">
               เมนู 3
             </div>
-            <div class="flex menu_box" >
+            <div class="flex-6 menu_box" >
               <paper-radio-group id="radiogroupcheck" selected="{{dataselect.radiogroup}}">
                 <paper-radio-button name="a">เลือก 1 </paper-radio-button>
                 <paper-radio-button name="b">เลือก 2</paper-radio-button>
@@ -104,10 +105,10 @@ paper-button.edit {
         <hr>
         <div class="flex">
           <div class="layout horizontal">
-            <div class="flex-2 menu_box">
+            <div class="flex menu_box">
               เมนู 4
             </div>
-            <div class="flex menu_box" >
+            <div class="flex-6 menu_box" >
               <paper-checkbox id="checkbox1" checked="{{dataselect.check1}}"> เลือก 1</paper-checkbox>
               <paper-checkbox id="checkbox2" checked="{{dataselect.check2}}"> เลือก 2</paper-checkbox>
               <paper-checkbox id="checkbox3" checked="{{dataselect.check3}}"> เลือก 3</paper-checkbox>
