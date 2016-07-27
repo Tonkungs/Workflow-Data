@@ -7,7 +7,7 @@
   </style>
   <template>
     <paper-fab label$="[[num]]" title$="ลำดับที่ [[num]]" id="number_[[num]]" on-tap="changemenu"></paper-fab>
-    <paper-badge for$="number_[[num]]" label$="[[num]]"></paper-badge>
+    <paper-badge for$="number_[[num]]" label="[[lengthdata]]"></paper-badge>
   </template>
   <script>
   Polymer({
@@ -22,9 +22,10 @@
         notify:true,
       }
     },
-    
+
     attached: function() {
           this.dataedit = document.getElementById('data');
+          // console.log(this.lengthdata);
     },
     changemenu:function(e){
       // เลขในอาเรย์

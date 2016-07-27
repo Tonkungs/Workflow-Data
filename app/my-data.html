@@ -225,13 +225,43 @@
           type: Object,
           notify:true
         },
-        stepmenu:{
+        treemenu:{
           type: Object,
           notify:true,
           value: [
-              { id:0 , namestepmenu:"ข้อมูล 1" , url:"รายละเอียด 1" },
-              { id:1 , namestepmenu:"ข้อมูล 2" , url:"รายละเอียด 2" },
-              { id:2 , namestepmenu:"ข้อมูล 3" , url:"รายละเอียด 3" }
+              { id:0 ,
+                pile:"กอง 1" ,
+                data:"ข้อมูลของกองที่ 1",
+                subpile:[
+                          {
+                              id:1 ,
+                              pile:"กอง 1.1",
+                              data:"ข้อมูลของกองที่ 1.1"
+                          },
+                        ]
+              },
+              { id:4 ,
+                pile:"กอง 2" ,
+                data:"ข้อมูลของกองที่ 2",
+                subpile:[
+                          {
+                              id:6 ,
+                              pile:"กอง 2.1" ,
+                              data:"ข้อมูลของกองที่ 2.1",
+                              subpile:[
+                                        {
+                                            id:7 ,
+                                            pile:"กอง 2.1.1",
+                                            data:"ข้อมูลของกองที่ 2.1.1"
+                                        },
+                                      ]
+                          }
+                        ]
+              },
+              { id:5 ,
+                pile:"กอง 3" ,
+                data:"ข้อมูลของกองที่ 3"
+              }
             ]
         }
       },
@@ -245,7 +275,8 @@
       },
       save:function(idparent,id,data){
         var index = this.ldata[idparent].detail.indexOf(id);
-        this.splice('ldata.'+idparent+'.detail',index,1,data);
+        var sendData = JSON.parse(JSON.stringify(data));
+        this.splice('ldata.'+idparent+'.detail',index,1,sendData);
         this.ldata = JSON.parse(JSON.stringify(this.ldata));
         //console.log(this.get('ldata.'+idparent+'.detail'));
       },

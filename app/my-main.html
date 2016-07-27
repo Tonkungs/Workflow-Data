@@ -19,7 +19,7 @@
     }
   </style>
   <template>
-    <my-data id="data" ldata={{data}} menuselect="{{menuselected}}" dataselect={{selecteds}} stepmenu={{sfwizard}}></my-data>
+    <my-data id="data" ldata={{data}} menuselect="{{menuselected}}" dataselect={{selecteds}} stepmenu={{sfwizard}} treemenu={{treemenu}}></my-data>
       <paper-drawer-panel responsive-width="960px" drawer-width="0px">
         <paper-scroll-header-panel drawer fixed>
         </paper-scroll-header-panel>
@@ -33,7 +33,7 @@
           <div class="bg">
           <iron-pages selected="{{selectedpage}}" selectedindex="0">
               <my-dashboard></my-dashboard>
-              <management-data lists="{{data}}" dataright="{{selecteds}}" sfwizard={{sfwizard}}></management-data>
+              <management-data lists="{{data}}" dataright="{{selecteds}}" sfwizard={{sfwizard}} treemenu={{treemenu}}></management-data>
             </iron-pages>
             <my-footer></my-footer>
           </div>

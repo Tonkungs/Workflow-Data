@@ -3,7 +3,7 @@
 <link rel="import" href="my-editdata.html">
 <link rel="import" href="my-worktimeline.html">
 <link rel="import" href="my-stepformwizard.html">
-<link rel="import" href="my-stepformwizard.html">
+<link rel="import" href="my-listtree.html">
 <dom-module id="management-data">
 <style include="iron-flex iron-flex-alignment">  </style>
 <style>
@@ -30,10 +30,13 @@ paper-card > .heading{
 <template>
   <div class="layout vertical">
     <paper-card>
-      <my-worktimeline numselect="{{menudatas}}"></my-worktimeline>
+      <my-worktimeline numselect="{{menudatas}}" datalength="{{lists}}"></my-worktimeline>
     </paper-card>
     <paper-card>
       <my-stepformwizard sfwizard={{sfwizard}}></my-stepformwizard>
+    </paper-card>
+    <paper-card>
+      <my-listtree treemenu={{treemenu}}></my-listtree>
     </paper-card>
     <paper-card>
       <div class="heading">Data </div>

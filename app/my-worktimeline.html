@@ -25,38 +25,39 @@ canvas{
 <template>
   <div class="heading">chart </div>
   <div class="card-content">
+    [[id2]]sa
     <div class="layout vertical">
       <div class="layout horizontal">
         <div class="flex bd">
         </div>
         <div class="flex bd layout center-justified">
-          <my-fab num="2" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="[[id2]]"num="2" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
-          <my-fab num="3" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="[[id3]]"num="3" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
         </div>
       </div>
       <div class="layout horizontal">
         <div class="flex-4 bd">
-          <my-fab num="1" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="[[id1]]"num="1" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
-          <my-fab num="6" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="[[id6]]"num="6" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
-          <my-fab num="7" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="[[id7]]"num="7" selectarray={{numselect}}></my-fab>
         </div>
       </div>
       <div class="layout horizontal">
         <div class="flex bd">
         </div>
         <div class="flex bd">
-          <my-fab num="4" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="[[id4]]"num="4" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
-          <my-fab num="5" selectarray={{numselect}}></my-fab>
+          <my-fab lengthdata="[[id5]]"num="5" selectarray={{numselect}}></my-fab>
         </div>
         <div class="flex bd">
         </div>
@@ -64,6 +65,7 @@ canvas{
       <canvas id="canvas" width="1300" height="180"></canvas>
       <!-- <button type="button" name="button" on-tap="checkd">เลข</button> -->
     </div>
+    <button type="button" name="button" on-tap="checknum">ddddd</button>
   </div>
 </template>
 <script>
@@ -77,6 +79,7 @@ Polymer({
     }
   },
   ready: function() {
+
     // this.$.canvas;
     var canvas = this.$.canvas;
     var context = canvas.getContext('2d');
@@ -104,6 +107,19 @@ Polymer({
     // เส้น 5 เลข 5 ไปเลข 6
     context.lineTo(880, 100);
     context.stroke();
+  },
+    observers: [
+    'countarray(datalength)'
+  ],
+  countarray: function(datalength) {
+    // console.log(datalength[0].detail.length);
+    this.id1 = datalength[0].detail.length;
+    this.id2 = datalength[1].detail.length;
+    this.id3 = datalength[2].detail.length;
+    this.id4 = datalength[3].detail.length;
+    this.id5 = datalength[4].detail.length;
+    this.id6 = datalength[5].detail.length;
+    this.id7 = datalength[6].detail.length;
   }
 });
 </script>
